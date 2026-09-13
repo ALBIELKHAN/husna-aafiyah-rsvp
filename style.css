@@ -508,3 +508,59 @@ footer span {
     font-size: 6px;
   }
 }
+
+/* =========================
+   EMAIL REMINDER
+   ========================= */
+
+.reminder-box {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px solid #edc7cf;
+  border-radius: 16px;
+  background: rgba(255, 242, 244, 0.55);
+}
+
+.reminder-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--dark-pink);
+}
+
+.reminder-option input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: #d9909f;
+  cursor: pointer;
+}
+
+.reminder-note {
+  margin: 7px 0 0 27px;
+  font-size: 9px;
+  line-height: 1.6;
+  color: #9b777e;
+}
+
+.email-field {
+  margin-top: 15px;
+}
+
+.email-field label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.email-field input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none !important;
+}
