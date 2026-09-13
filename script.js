@@ -105,8 +105,34 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  // =========================
+  // EMAIL REMINDER OPTION
+  // =========================
 
+  const reminderCheckbox = document.getElementById("reminder");
+  const emailField = document.getElementById("emailField");
+  const emailInput = document.getElementById("email");
 
+  if (reminderCheckbox && emailField && emailInput) {
+
+    reminderCheckbox.addEventListener("change", () => {
+
+      if (reminderCheckbox.checked) {
+
+        emailField.classList.remove("hidden");
+        emailInput.required = true;
+
+      } else {
+
+        emailField.classList.add("hidden");
+        emailInput.required = false;
+        emailInput.value = "";
+
+      }
+
+    });
+
+  }
   // =========================
   // RSVP SUBMISSION
   // =========================
@@ -122,13 +148,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const nameInput = document.getElementById("name");
       const guestsInput = document.getElementById("pax");
+      const reminderCheckbox = document.getElementById("reminder");
+      const emailInput = document.getElementById("email");
       const submitButton = form.querySelector(".submit-btn");
 
       const name = nameInput.value.trim();
       const guests = Number(guestsInput.value);
 
+      const wantsReminder = reminderCheckbox.checked;
+      const email = emailInput.value.trim();
+
+      // Basic validation
       if (!name || guests < 1) {
         alert("Please enter your name and number of guests.");
+        return;
+      }
+
+      // Email is required if reminder is selected
+      if (wantsReminder && !email) {
+        alert("Please enter your email address for the reminder.");
+        emailInput.focus();
+        return;
+      }
+
+      // Check email format
+      if (
+        wantsReminder &&
+        email &&
+        !emailInput.checkValidity()
+      ) {
+        alert("Please enter a valid email address.");
+        emailInput.focus();
         return;
       }
 
@@ -138,10 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
 
         /*
-         * Use a normal HTML form submission through
-         * a hidden iframe.
-         *
-         * This avoids CORS problems with Google Apps Script.
+         * Submit to Google Apps Script using
+         * a hidden iframe to avoid CORS problems.
          */
 
         const iframe = document.createElement("iframe");
@@ -158,26 +206,42 @@ document.addEventListener("DOMContentLoaded", () => {
         submitForm.target = "rsvpSubmitFrame";
         submitForm.style.display = "none";
 
+        // Name
         const nameField = document.createElement("input");
         nameField.type = "hidden";
         nameField.name = "name";
         nameField.value = name;
 
+        // Number of guests
         const paxField = document.createElement("input");
         paxField.type = "hidden";
         paxField.name = "pax";
         paxField.value = guests;
 
+        // Email
+      const emailData = document.createElement("input");
+      emailData.type = "hidden";
+      emailData.name = "email";
+      emailData.value = email;
+
+        // Reminder
+        const reminderField = document.createElement("input");
+        reminderField.type = "hidden";
+        reminderField.name = "reminder";
+        reminderField.value = wantsReminder ? "Yes" : "No";
+
         submitForm.appendChild(nameField);
         submitForm.appendChild(paxField);
+        submitForm.appendChild(emailData);
+        submitForm.appendChild(reminderField);
 
         document.body.appendChild(submitForm);
 
         submitForm.submit();
 
         /*
-         * Give Google Apps Script time to process
-         * the submission before showing success.
+         * Allow Google Apps Script time to
+         * process the RSVP.
          */
 
         setTimeout(() => {
@@ -213,7 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
   }
-
 
   // =========================
   // FALLING PETALS
