@@ -91,21 +91,97 @@
       <section class="rsvp-card" id="rsvp">
         <p class="eyebrow">KINDLY RSVP</p>
         <h3>Will you be joining us?</h3>
-        <p class="rsvp-subtitle">Please let us know your name and number of guests.</p>
+        <p class="rsvp-subtitle">Please let us know your name and number of guests. You may also request an email reminder.</p>
+<form id="rsvpForm">
 
-        <form id="rsvpForm">
-          <label for="name">Name / Head of Family</label>
-          <input id="name" name="name" type="text" placeholder="e.g. Ahmad" autocomplete="name" required>
+  <label for="name">Name / Head of Family</label>
 
-          <label for="pax">Number of people attending</label>
-          <div class="counter">
-            <button type="button" id="minus" aria-label="Decrease number">−</button>
-            <input id="pax" name="pax" type="number" value="1" min="1" max="30" readonly>
-            <button type="button" id="plus" aria-label="Increase number">+</button>
-          </div>
+  <input
+    id="name"
+    name="name"
+    type="text"
+    placeholder="e.g. Ahmad"
+    autocomplete="name"
+    required
+  >
 
-          <button class="primary-btn submit-btn" type="submit">CONFIRM ATTENDANCE <span>♡</span></button>
-        </form>
+  <label for="pax">Number of people attending</label>
+
+  <div class="counter">
+    <button
+      type="button"
+      id="minus"
+      aria-label="Decrease number"
+    >−</button>
+
+    <input
+      id="pax"
+      name="pax"
+      type="number"
+      value="1"
+      min="1"
+      max="30"
+      readonly
+    >
+
+    <button
+      type="button"
+      id="plus"
+      aria-label="Increase number"
+    >+</button>
+  </div>
+
+  <!-- EMAIL REMINDER -->
+
+  <div class="reminder-box">
+
+    <label class="reminder-option">
+
+      <input
+        type="checkbox"
+        id="reminder"
+        name="reminder"
+      >
+
+      <span>
+        Yes, remind me by email
+      </span>
+
+    </label>
+
+    <p class="reminder-note">
+      We'll send you a little reminder 2 days before the celebration. ♡
+    </p>
+
+    <div
+      id="emailField"
+      class="email-field hidden"
+    >
+
+      <label for="email">
+        Email address
+      </label>
+
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="e.g. ahmad@gmail.com"
+        autocomplete="email"
+      >
+
+    </div>
+
+  </div>
+
+  <button
+    class="primary-btn submit-btn"
+    type="submit"
+  >
+    CONFIRM ATTENDANCE <span>♡</span>
+  </button>
+
+</form>
 
         <div class="success hidden" id="success">
           <div class="success-bow">🎀</div>
