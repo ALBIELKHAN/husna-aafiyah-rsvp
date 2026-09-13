@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8d8df">
+  <title>Husna Aafiyah's 2nd Birthday</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="petals" aria-hidden="true"></div>
+
+  <main>
+    <!-- Opening screen -->
+    <section class="opening" id="opening">
+      <div class="opening-card">
+        <div class="mini-bow">🎀</div>
+        <p class="eyebrow">YOU'RE INVITED TO</p>
+        <h1>A Bow-tiful<br>Celebration</h1>
+        <p class="script">Husna Aafiyah's</p>
+        <p class="birthday">2ND BIRTHDAY</p>
+        <button class="primary-btn" id="openBtn">OPEN INVITATION <span>♡</span></button>
+      </div>
+    </section>
+
+    <!-- Invitation -->
+    <section class="invitation hidden" id="invitation">
+      <div class="hero">
+        <div class="hero-ribbon"></div>
+        <p class="eyebrow">YOU'RE INVITED TO</p>
+        <h2>A Bow-tiful Celebration of</h2>
+        <p class="script name">Husna Aafiyah's</p>
+        <p class="birthday">2ND BIRTHDAY</p>
+        <div class="big-two">2</div>
+        <p class="intro">
+          Two years of love, laughter and so many beautiful memories.<br>
+          Please join us as we celebrate our little girl!
+        </p>
+
+        <div class="countdown-card">
+          <p class="countdown-title">COUNTING DOWN TO THE CELEBRATION</p>
+          <div class="countdown" id="countdown">
+            <div><strong id="days">00</strong><span>DAYS</span></div>
+            <div><strong id="hours">00</strong><span>HOURS</span></div>
+            <div><strong id="minutes">00</strong><span>MINUTES</span></div>
+            <div><strong id="seconds">00</strong><span>SECONDS</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="detail">
+          <span class="icon">♡</span>
+          <strong>DATE</strong>
+          <span>4TH OCTOBER 2026</span>
+          <small>SUNDAY</small>
+        </div>
+        <div class="divider"></div>
+        <div class="detail">
+          <span class="icon">◷</span>
+          <strong>TIME</strong>
+          <span>3:00 PM – 7:00 PM</span>
+        </div>
+        <div class="divider"></div>
+        <div class="detail">
+          <span class="icon">⌖</span>
+          <strong>VENUE</strong>
+          <span>Level 3A<br>Hillcrest Heights</span>
+          <small>Jalan Puchong Utama 1<br>Taman Puchong Utama<br>47140 Puchong, Selangor</small>
+        </div>
+      </div>
+
+      <div class="map-action">
+        <a
+          class="map-btn"
+          href="https://www.google.com/maps/search/?api=1&query=Hillcrest+Heights+Level+3A+Puchong+Selangor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          📍 OPEN LOCATION IN GOOGLE MAPS
+        </a>
+      </div>
+
+      <div class="note">
+        Parking and venue assistance will be provided by the guard.
+      </div>
+
+      <section class="rsvp-card" id="rsvp">
+        <p class="eyebrow">KINDLY RSVP</p>
+        <h3>Will you be joining us?</h3>
+        <p class="rsvp-subtitle">Please let us know your name and number of guests.</p>
+
+        <form id="rsvpForm">
+          <label for="name">Name / Head of Family</label>
+          <input id="name" name="name" type="text" placeholder="e.g. Ahmad" autocomplete="name" required>
+
+          <label for="pax">Number of people attending</label>
+          <div class="counter">
+            <button type="button" id="minus" aria-label="Decrease number">−</button>
+            <input id="pax" name="pax" type="number" value="1" min="1" max="30" readonly>
+            <button type="button" id="plus" aria-label="Increase number">+</button>
+          </div>
+
+          <button class="primary-btn submit-btn" type="submit">CONFIRM ATTENDANCE <span>♡</span></button>
+        </form>
+
+        <div class="success hidden" id="success">
+          <div class="success-bow">🎀</div>
+          <h3>Thank You!</h3>
+          <p>Your RSVP has been received.</p>
+          <p class="small">We can't wait to celebrate with you! ♡</p>
+        </div>
+      </section>
+
+      <footer>
+        <p class="script">We can't wait to celebrate with you!</p>
+        <span>♡</span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
